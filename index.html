@@ -9,10 +9,12 @@ layout: default
 			{% for post in site.posts %}
 				<article class="clearfix">
 					<div class="post-date">
-						{{ post.date | date: "%b %-d, %Y" }} | <a href="">Melissa Sing </a> <span><a href="">11 Comments</a></span>
+						{{ post.date | date: "%b %-d, %Y" }} | <a href="">{{ post.author }}</a> <span><a href="">11 Comments</a></span>
 					</div>		
 					<h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h2>
-					<p>Use this resource to highlight the points of interest of your products. Just a click to open a brief description of each point, allowing your user to get a deep and fast understanding of your product features. <a class="" href="post-typography.html">Read more</a>
+					<p>
+						{{ post.excerpt }} 
+						<a class="" href="{{ post.url | prepend: site.baseurl }}">Read more</a>
 					</p>
 				</article>
 			{% endfor %}

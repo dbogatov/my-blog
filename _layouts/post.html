@@ -7,9 +7,9 @@ layout: default
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
 				<ol class="breadcrumb">
-					<li><a href="index.html">Blog</a></li>
-					<li><a href="#">Writing</a></li>
-					<li class="active">We don't have a brig</li>
+					<li><a href="/">Blog</a></li>
+					<li><a href="#">{{ page.categories }}</a></li>
+					<li class="active">{{ page.title }}</li>
 				</ol>
 			</div>
 		</div>
@@ -21,25 +21,28 @@ layout: default
 		<div class="col-md-10 col-md-offset-1">
 			
 			<div class="post-date">
-				May 26, 2014 | <a href="">Melissa Sing </a> <span><a href="">11 Comments</a></span>
+				{{ page.date | date: "%b %-d, %Y" }} | <a href="">{{ page.author }} </a> <span><a href="">11 Comments</a></span>
 			</div>
 
-			{{ content }}		
+			{{ content }}
 			
 			<div class="post-date">
-				tags | <a href="">JavaScript</a> , <a href="">jQuery</a> , <a href="">Angular</a> 
-				<span>
+				tags | 
+				{% for tag in page.tags %}
+					<a href="">{{ tag }}</a>{% unless forloop.last %},{% endunless %}   
+				{% endfor %}
 
-				</span>
+				<span></span>
 			</div>
-				<ul class="social-links outline text-center">
-						<li><a href="#link"><i class="icon-twitter"></i></a></li>
-						<li><a href="#link"><i class="icon-facebook"></i></a></li>
-						<li><a href="#link"><i class="icon-googleplus"></i></a></li>
-					</ul>
+
+			<ul class="social-links outline text-center">
+				<li><a href="#link"><i class="icon-twitter"></i></a></li>
+				<li><a href="#link"><i class="icon-facebook"></i></a></li>
+				<li><a href="#link"><i class="icon-googleplus"></i></a></li>
+			</ul>
 
 			<div id="author" class="clearfix">
-				<img class="img-circle" alt="" src="img/author-sing.jpg" height="96" width="96">
+				<img class="img-circle" alt="" src="/assets/images/author-sing.jpg" height="96" width="96">
 				<div class="author-info">
 					<h3>Melissa Sing</h3>
 					<p>If rubbin' frozen dirt in your crotch is wrong, hey I don't wanna be right. You can follow her on <a href="">Twitter</a>.</p>
@@ -49,18 +52,18 @@ layout: default
 			<div class="post-popular">
 				<div class="row hidden-xs">
 					<div class="col-sm-4 col-md-4">	
-						<a href="post-video.html"><img src="img/img2.jpg" class="img-responsive" alt="img2"></a>
+						<a href="post-video.html"><img src="/assets/images/img2.jpg" class="img-responsive" alt="img2"></a>
 						<h4 class="text-center"><a href="post-video.html">But I've never been to the moon!</a></h4>
 						<p class="post-date text-center">MAY 10, 2014</p>
 					</div>
 					<div class="col-sm-4 col-md-4">	
-						<a href="post-typography.html"><img  src="img/img1.jpg" class="img-responsive" alt="img1"></a>
+						<a href="post-typography.html"><img  src="/assets/images/img1.jpg" class="img-responsive" alt="img1"></a>
 						<h4 class="text-center"><a href="post-typography.html">We don't have a brig</a></h4>
 						<p class="post-date text-center">september 27, 2014</p>
 						
 					</div>
 					<div class="col-sm-4 col-md-4">	
-						<a href="post-image.html"><img  src="img/img3.jpg" class="img-responsive" alt="img3"></a>
+						<a href="post-image.html"><img  src="/assets/images/img3.jpg" class="img-responsive" alt="img3"></a>
 						<h4 class="text-center"><a href="post-image.html">Every other day it's food, food, food.</a></h4>
 						<p class="post-date text-center">april 2, 2014</p>
 						
@@ -69,21 +72,21 @@ layout: default
 				<div class="row visible-xs">
 					<div class="col-sm-12">
 						<div class="media">
-							<a class="pull-left" href="post-video.html"><img class="media-object" src="img/img2.jpg" width="100" alt=""></a>
+							<a class="pull-left" href="post-video.html"><img class="media-object" src="/assets/images/img2.jpg" width="100" alt=""></a>
 							<div class="media-body">
 								<h4 class="media-heading"><a href="post-video.html">But I've never been to the moon!</a></h4>
 								<p class="post-date">may 10, 2014</p>
 							</div>
 						</div>
 						<div class="media">
-							<a class="pull-left" href="post-typography.html"><img class="media-object" src="img/img1.jpg" width="100" alt=""></a>
+							<a class="pull-left" href="post-typography.html"><img class="media-object" src="/assets/images/img1.jpg" width="100" alt=""></a>
 							<div class="media-body">
 								<h4 class="media-heading"><a href="post-typography.html">We don't have a brig</a></h4>
 								<p class="post-date">september 27, 2014</p>
 							</div>
 						</div>
 						<div class="media">
-							<a class="pull-left" href="post-image.html"><img class="media-object" src="img/img3.jpg" width="100" alt=""></a>
+							<a class="pull-left" href="post-image.html"><img class="media-object" src="/assets/images/img3.jpg" width="100" alt=""></a>
 							<div class="media-body">
 								<h4 class="media-heading"><a href="post-image.html">Every other day it's food, food, food.</a></h4>
 								<p class="post-date">april 2, 2014</p>
@@ -98,7 +101,7 @@ layout: default
 			<div class="media">
 				<hr>
 				<a class="pull-left avatar" href="#">
-					<img class="media-object img-circle" src="img/author-sing.jpg" width="40" height="40" alt="">
+					<img class="media-object img-circle" src="/assets/images/author-sing.jpg" width="40" height="40" alt="">
 				</a>
 				<div class="media-body">
 					<h4 class="media-heading"><a href="">Melissa Sing</a><span>5h ago | <a href="#">REPLY</a></span></h4>
@@ -107,7 +110,7 @@ layout: default
 
 					<div class="media">
 						<a class="pull-left avatar" href="#">
-							<img class="media-object img-circle" src="img/author-red.jpg" width="40" height="40" alt="">
+							<img class="media-object img-circle" src="/assets/images/author-red.jpg" width="40" height="40" alt="">
 						</a>
 						<div class="media-body">
 							<h4 class="media-heading"><a href="">Jessica Red</a><span>17h ago | <a href="#">REPLY</a></span></h4>
@@ -118,7 +121,7 @@ layout: default
 
 					<div class="media">
 						<a class="pull-left avatar" href="#">
-								<img class="media-object img-circle" src="img/author-sans.jpg" width="40" height="40" alt="">
+								<img class="media-object img-circle" src="/assets/images/author-sans.jpg" width="40" height="40" alt="">
 						</a>
 						<div class="media-body">
 							<h4 class="media-heading"><a href="">Dorin Sans</a><span>2d ago | <a href="#">REPLY</a></span></h4>
@@ -128,7 +131,7 @@ layout: default
 				</div>
 				<div class="media">
 						<a class="pull-left avatar" href="#">
-							<img class="media-object img-circle" src="img/author-red.jpg" width="40" height="40" alt="">
+							<img class="media-object img-circle" src="/assets/images/author-red.jpg" width="40" height="40" alt="">
 						</a>
 						<div class="media-body">
 							<h4 class="media-heading"><a href="">Jessica Red</a><span>3d ago | <a href="#">REPLY</a></span></h4>
