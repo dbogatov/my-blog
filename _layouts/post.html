@@ -2,6 +2,8 @@
 layout: default
 ---
 
+{% assign author = site.data.authors[page.author] %}  
+
 <section id="breadcrumb">
 	<div class="container">
 		<div class="row">
@@ -21,7 +23,7 @@ layout: default
 		<div class="col-md-10 col-md-offset-1">
 			
 			<div class="post-date">
-				{{ page.date | date: "%b %-d, %Y" }} | <a href="">{{ page.author }} </a> <span><a href="">11 Comments</a></span>
+				{{ page.date | date: "%b %-d, %Y" }} | <a href="">{{ author.name }} </a> <span><a href="">11 Comments</a></span>
 			</div>
 
 			{{ content }}
@@ -42,62 +44,16 @@ layout: default
 			</ul>
 
 			<div id="author" class="clearfix">
-				<img class="img-circle" alt="" src="/assets/images/author-sing.jpg" height="96" width="96">
+				<img class="img-circle" alt="" src="/assets/images/authors/{{ author.image }}" height="96" width="96">
 				<div class="author-info">
-					<h3>Melissa Sing</h3>
-					<p>If rubbin' frozen dirt in your crotch is wrong, hey I don't wanna be right. You can follow her on <a href="">Twitter</a>.</p>
+					<h3>{{ author.name }}</h3>
+					<p>{{ author.description }}. You can follow {% if author.male %}him{% else %}her{% endif %} on <a href="{{ author.facebook }}">Facebook</a>.</p>
 				</div>
 			</div>
 
-			<div class="post-popular">
-				<div class="row hidden-xs">
-					<div class="col-sm-4 col-md-4">	
-						<a href="post-video.html"><img src="/assets/images/img2.jpg" class="img-responsive" alt="img2"></a>
-						<h4 class="text-center"><a href="post-video.html">But I've never been to the moon!</a></h4>
-						<p class="post-date text-center">MAY 10, 2014</p>
-					</div>
-					<div class="col-sm-4 col-md-4">	
-						<a href="post-typography.html"><img  src="/assets/images/img1.jpg" class="img-responsive" alt="img1"></a>
-						<h4 class="text-center"><a href="post-typography.html">We don't have a brig</a></h4>
-						<p class="post-date text-center">september 27, 2014</p>
-						
-					</div>
-					<div class="col-sm-4 col-md-4">	
-						<a href="post-image.html"><img  src="/assets/images/img3.jpg" class="img-responsive" alt="img3"></a>
-						<h4 class="text-center"><a href="post-image.html">Every other day it's food, food, food.</a></h4>
-						<p class="post-date text-center">april 2, 2014</p>
-						
-					</div>
-				</div>
-				<div class="row visible-xs">
-					<div class="col-sm-12">
-						<div class="media">
-							<a class="pull-left" href="post-video.html"><img class="media-object" src="/assets/images/img2.jpg" width="100" alt=""></a>
-							<div class="media-body">
-								<h4 class="media-heading"><a href="post-video.html">But I've never been to the moon!</a></h4>
-								<p class="post-date">may 10, 2014</p>
-							</div>
-						</div>
-						<div class="media">
-							<a class="pull-left" href="post-typography.html"><img class="media-object" src="/assets/images/img1.jpg" width="100" alt=""></a>
-							<div class="media-body">
-								<h4 class="media-heading"><a href="post-typography.html">We don't have a brig</a></h4>
-								<p class="post-date">september 27, 2014</p>
-							</div>
-						</div>
-						<div class="media">
-							<a class="pull-left" href="post-image.html"><img class="media-object" src="/assets/images/img3.jpg" width="100" alt=""></a>
-							<div class="media-body">
-								<h4 class="media-heading"><a href="post-image.html">Every other day it's food, food, food.</a></h4>
-								<p class="post-date">april 2, 2014</p>
-							</div>
-						</div>
-						
-					</div>
-				</div>
-			</div>
+			{% include popular.html %}
 
-			<h3>11 Comments</h3>	
+			<!--<h3>11 Comments</h3>	
 			<div class="media">
 				<hr>
 				<a class="pull-left avatar" href="#">
@@ -138,15 +94,15 @@ layout: default
 							<p>It may comfort you to know that Fry's death took only fifteen seconds, yet the pain was so intense, that it felt to him like fifteen years.  </p>
 						</div>
 					</div>
-			</div>
+			</div>-->
 
-			<div id="comments_pagination">
+			<!--<div id="comments_pagination">
 				<span class="page-numbers current">1</span>
 				<a class="page-numbers" href="#">2</a>
 				<a class="next page-numbers" href="#"><i class="icon-arrow-right2"></i></a>
-			</div>
+			</div>-->
 
-			<h3>Add a new comment</h3>
+			<!--<h3>Add a new comment</h3>
 			<form action="index.html" method="post" novalidate class="myform" id="mycomment">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 wow fadeInUp" >
@@ -194,7 +150,7 @@ layout: default
 
 					</div>
 				</div>
-			</form>
+			</form>-->
 
 		</div>
 	</div>

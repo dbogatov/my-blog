@@ -19,6 +19,11 @@
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/ico/72.png" type="image/png"/>
 		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/ico/120.png" type="image/png"/>
 		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/ico/152.png" type="image/png"/>
+
+		{% if page.path contains '_posts' %}
+			<link rel="amphtml" href="{{ page.id | prepend: '/_amp' | prepend: site.baseurl | prepend: site.url }}">
+		{% endif %}
+
 		<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -88,8 +93,8 @@
 				<div class="container welcome-content">
 					<div class="middle-text">
 						<h1>HELLO, I AM DMYTRO BOGATOV</h1>
-						<h2><b>Key Lime</b> is a blog theme built with Bootstrap <br>by <b>Angelo Studio</b></h2>
-						<a class="btn smooth-scroll" href="#start">Get Stated</a>
+						<h2><b>This website</b> is my personal blog powered <br>by <b>Jekyll</b></h2>
+						<a class="btn smooth-scroll" href="#start">See latest posts</a>
 					</div>
 				</div>
 			</section>
@@ -107,15 +112,15 @@
 
 								<div class="stats">
 									<div class="line">
-										<span class="counter">27</span>
+										<span class="counter">{{ site.posts | size }}</span>
 										<span class="caption">Articles</span>
 									</div>
 									<div class="line">
-										<span class="counter">208</span>
-										<span class="caption">Comments</span>
+										<span class="counter">{{ site.categories | size }}</span>
+										<span class="caption">Categories</span>
 									</div>
 									<div class="line">
-										<span class="counter">2</span>
+										<span class="counter">{{ site.data.authors | size }}</span>
 										<span class="caption">Authors</span>
 									</div>                    
 								</div>
@@ -126,27 +131,16 @@
 								<div class="post-recent-widget">
 									<div class="row">
 										<div class="col-sm-12">
+
+											{% for post in site.posts limit:3 %}
 											<div class="media">
-												<a class="pull-left" href="post-video.html"><img class="media-object" src="/assets/images/img2.jpg" width="80" alt=""></a>
+												<a class="pull-left" href="{{ post.url | prepend: site.baseurl }}"><img class="media-object" src="/assets/images/posts/{% if post.image %}{{ post.image }}{% else %}placeholder.png{% endif %}" width="80" alt=""></a>
 												<div class="media-body">
-													<h4 class="media-heading"><a href="post-video.html">But I've never been to the moon!</a></h4>
-													<p class="post-date">may 10, 2014</p>
+													<h4 class="media-heading"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h4>
+													<p class="post-date">{{ post.date | date: "%b %-d, %Y" }}</p>
 												</div>
 											</div>
-											<div class="media">
-												<a class="pull-left" href="post-typography.html"><img class="media-object" src="/assets/images/img1.jpg" width="80" alt=""></a>
-												<div class="media-body">
-													<h4 class="media-heading"><a href="post-typography.html">We don't have a brig</a></h4>
-													<p class="post-date">september 27, 2014</p>
-												</div>
-											</div>
-											<div class="media">
-												<a class="pull-left" href="post-image.html"><img class="media-object" src="/assets/images/img3.jpg" width="80" alt=""></a>
-												<div class="media-body">
-													<h4 class="media-heading"><a href="post-image.html">Every other day it's food, food, food.</a></h4>
-													<p class="post-date">april 2, 2014</p>
-												</div>
-											</div>
+											{% endfor %}
 											
 										</div>
 									</div>
@@ -168,9 +162,9 @@
 					<div class="container">
 						<p class="pull-left">Copyright Dmytro Bogatov &copy; {{ site.time | date: "%Y" }} | All rights reserved. </p>
 						<ul class="social-links pull-right">
-							<li><a href="#link"><i class="icon-twitter"></i></a></li>
-							<li><a href="#link"><i class="icon-facebook"></i></a></li>
-							<li><a href="#link"><i class="icon-googleplus"></i></a></li>
+							<li><a href="https://twitter.com/Dima4ka007"><i class="icon-twitter"></i></a></li>
+							<li><a href="https://www.facebook.com/Dima4ka007"><i class="icon-facebook"></i></a></li>
+							<li><a href="https://plus.google.com/114014367601163240554"><i class="icon-googleplus"></i></a></li>
 						</ul>
 					</div>
 				</div>

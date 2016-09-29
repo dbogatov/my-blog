@@ -1,0 +1,10 @@
+{
+	"dmytro": {
+		"name": "Dmytro Bogatov",
+		"email": "dmytro@dbogatov.org",
+		"image": "dmytro.jpg",
+		"description": "Something about me",
+		"male": true,
+		"facebook": "https://www.facebook.com/Dima4ka007"
+	}
+}

@@ -759,7 +759,7 @@ article .btn {
 }
 
 .post-popular::before {
-	content: "Popular post";
+	content: "Popular posts";
 	position: absolute;
 	left: 0;
 	top: -12px;
