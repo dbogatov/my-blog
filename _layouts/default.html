@@ -71,7 +71,7 @@
 		</div>
 
 		<div id="wrap">
-			<div id="main-nav" class="">
+			<div id="main-nav" {% if page.transnav %} class="nav-bg"{% endif %}>
 				<div class="container">
 					<div class="nav-header">
 							<a class="nav-brand" href="/"><i class="icon-lime"></i>Dmytro Bogatov</a>
@@ -196,6 +196,10 @@
 		<script type="text/javascript" src="/assets/js/placeholders.min.js"></script>
 		<script type="text/javascript" src="/assets/js/wow.min.js"></script>
 		<script type="text/javascript" src="/assets/js/custom.js"></script>
+
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script type="text/javascript" src="/assets/js/google-maps.js"></script>
+
 		
 	</body>
 </html>

@@ -29,9 +29,9 @@ layout: default
 			</div>
 
 			<ul class="social-links outline text-center">
-				<li><a href="#link"><i class="icon-twitter"></i></a></li>
-				<li><a href="#link"><i class="icon-facebook"></i></a></li>
-				<li><a href="#link"><i class="icon-googleplus"></i></a></li>
+				<li><a href="#"><i class="icon-twitter"></i></a></li>
+				<li><a id="fb-share" href="#"><i class="icon-facebook"></i></a></li>
+				<li><a href="#"><i class="icon-googleplus"></i></a></li>
 			</ul>
 
 			<div id="author" class="clearfix">
@@ -146,3 +146,22 @@ layout: default
 		</div>
 	</div>
 </div>
+
+<script>
+
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&appId=300565053657839";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
+	document.getElementById('fb-share').onclick = function() {
+		FB.ui({
+			method: 'share',
+			display: 'popup',
+			href: window.location.href,
+		}, function(response){});
+	}
+</script>
