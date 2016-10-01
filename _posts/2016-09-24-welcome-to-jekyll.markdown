@@ -5,7 +5,7 @@ guid: 1
 
 title:  "Welcome to Jekyll!"
 date:   2016-09-24 15:50:18 -0400
-categories: [Server Setup]
+categories: [Server]
 author: dmytro
 tags: [good, best]
 ---

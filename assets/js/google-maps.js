@@ -3,10 +3,10 @@ if ($("#google-maps").length > 0) {
 	/* google map ======================================= */
 	$(document).ready(function () {
 		function initializeGoogleMap() {
-			var myLatlng = new google.maps.LatLng(51.47900, -0.06204);
+			var myLatlng = new google.maps.LatLng(42.270906, -71.807786);
 			var myOptions = {
 				center: myLatlng,
-				zoom: 16,
+				zoom: 13,
 				mapTypeControl: false,
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 				panControl: false,
