@@ -158,6 +158,8 @@ layout: default
 	}(document, 'script', 'facebook-jssdk'));
 
 	document.getElementById('fb-share').onclick = function() {
+		FB._https = true;
+
 		FB.ui({
 			method: 'share',
 			display: 'popup',
