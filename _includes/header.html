@@ -1,0 +1,10 @@
+<section id="hero" class="light-typo">
+	<div id="cover-image" class="image-bg animated fadeIn"></div>
+	<div class="container welcome-content">
+		<div class="middle-text">
+			<h1>{{ include.title }}</h1>
+			{% if include.paragraph %}<h2>{{ include.paragraph }}</h2>{% endif %}
+			{% if include.button %}<a class="btn smooth-scroll" href="#start">{{ include.button }}</a>{% endif %}
+		</div>
+	</div>
+</section>

@@ -32,6 +32,7 @@ GEM
       activesupport (~> 4.0)
       html-pipeline (~> 2.3)
       jekyll (~> 3.0)
+    jekyll-paginate (1.1.0)
     jekyll-redirect-from (0.11.0)
       jekyll (>= 2.0)
     jekyll-sass-converter (1.4.0)
@@ -78,6 +79,7 @@ DEPENDENCIES
   fastimage
   jekyll (= 3.2.1)
   jekyll-mentions
+  jekyll-paginate
   jekyll-redirect-from
   jekyll-sitemap
   jemoji

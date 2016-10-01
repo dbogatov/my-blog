@@ -2,28 +2,19 @@
 layout: default
 ---
 
-{% assign author = site.data.authors[page.author] %}  
+{% assign author = site.data.authors[page.author] %}
 
-<section id="breadcrumb">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-				<ol class="breadcrumb">
-					<li><a href="/">Blog</a></li>
-					<li><a href="#">{{ page.categories }}</a></li>
-					<li class="active">{{ page.title }}</li>
-				</ol>
-			</div>
-		</div>
-	</div>
-</section>
+{% include header.html title=page.title %}
+
+{% capture categoryURL %}/category/{{ page.categories | first | slugify }}{% endcapture %}
+{% include breadcrumb.html sub_url=categoryURL sub_title=page.categories active_title=page.title %}
 
 <div class="container content">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			
 			<div class="post-date">
-				{{ page.date | date: "%b %-d, %Y" }} | <a href="">{{ author.name }} </a> <span><a href="">11 Comments</a></span>
+				{{ page.date | date: "%b %-d, %Y" }} | <a href="/about">{{ author.name }} </a> <!-- <span><a href="">11 Comments</a></span> -->
 			</div>
 
 			{{ content }}

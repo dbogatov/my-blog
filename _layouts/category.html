@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+{% include header.html title=page.category button="See latest posts" %}
+
+{% include breadcrumb.html active_title=page.category %}
+
+<div id="start" class="container content">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+
+			{% for post in site.categories[page.category] %}
+				{% include post.html post=post %}
+			{% endfor %}
+
+			{% include popular.html %}
+
+			<ul class="tag-box inline">
+
+
+
+		</div>	
+	</div><!-- end row -->
+</div>

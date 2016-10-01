@@ -2,28 +2,27 @@
 layout: default
 ---
 
+{% include header.html title="HELLO, I AM DMYTRO BOGATOV" paragraph="<b>This website</b> is my personal blog powered <br>by <b>Jekyll</b>" button="See latest posts" %}
+
 <div id="start" class="container content">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 
-			{% for post in site.posts %}
-				<article class="clearfix {% if forloop.last %}last{% endif %}">
-					<div class="post-date">
-						{{ post.date | date: "%b %-d, %Y" }} | <a href="">{{ post.author }}</a> <!-- <span><a href="">11 Comments</a></span> -->
-					</div>		
-					<h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h2>
-					<p>
-						{{ post.excerpt }} 
-						<a class="" href="{{ post.url | prepend: site.baseurl }}">Read more</a>
-					</p>
-				</article>
+			{% for post in paginator.posts %}
+				{% include post.html post=post %}
 			{% endfor %}
 
 			{% include popular.html %}
 
+			<!-- Pagination links -->
 			<div class="paging clearfix">
-				<a class="btn pull-left" href="#"><i class="icon-arrow-left2 left"></i><span>Older</span><span class="hidden-xs"> Posts</span></a>
-				<a class="btn pull-right" href="#"><span>Newer</span><span class="hidden-xs"> Posts</span><i class="icon-arrow-right2 right"></i></a>
+				{% if paginator.previous_page %}
+					<a class="btn pull-left" href="{{ paginator.previous_page_path }}"><i class="icon-arrow-left2 left"></i><span>Newer</span><span class="hidden-xs"> Posts</span></a>
+				{% endif %}
+
+				{% if paginator.next_page %}
+					<a class="btn pull-right" href="{{ paginator.next_page_path }}"><span>Older</span><span class="hidden-xs"> Posts</span><i class="icon-arrow-right2 right"></i></a>
+				{% endif %}
 			</div>
 
 		</div>	

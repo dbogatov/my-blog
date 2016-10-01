@@ -3,7 +3,7 @@
 <html lang="en">
 	<head>
 
-		<title>{% if page.title %}{{ page.title }} | {% endif %}Dmytro Bogatov</title>
+		<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
 		<meta charset="utf-8">
 		<meta name="description" content="Dmytro Bogatov's personal blog'">
@@ -31,6 +31,7 @@
 	</head>
 
 	<body id="home">
+		
 		<div id="menu" class="menu-right">
 			<ul>
 				<li>
@@ -42,18 +43,18 @@
 						</div>
 					</form>
 				</li>
-				<li><a href="index.html"><i class="icon-lime"></i>Home</a></li>
-				<li><a href="about.html"><i class="icon-user"></i>About</a></li>
+				<li><a href="/"><i class="icon-lime"></i>Home</a></li>
+				<li><a href="/about"><i class="icon-user"></i>About</a></li>
 				<li class="submenu">
 					<a href="#"><i class="icon-books"></i>Categories<b class="caret"></b></a>
+					{% assign categories = site.categories %}  
 					<ul class="submenu-list">
-						<li><a href="category.html">Blogroll <span class="badge golden">2</span></a></li>
-						<li><a href="category.html">Quotes<span class="badge">4</span></a></li>
-						<li><a href="category.html">Travel<span class="badge red">12</span></a></li>
-						<li><a href="category.html">Writing<span class="badge blue">7</span></a></li>
+					{% for category in categories %} 
+						<li><a href="{{ category[0] | slugify | prepend: "/category/" }}">{{ category[0] | capitalize }} <span class="badge golden">{{ category[1].size }}</span></a></li>
+					{% endfor %}
 					</ul>		
 				</li>
-				<li class="submenu submenu-open">
+				<!--<li class="submenu submenu-open">
 					<a href="#"><i class="icon-file"></i>Pages<b class="caret"></b></a>
 					<ul class="submenu-list">
 						<li><a href="post-image.html">Post Image</a></li>
@@ -64,19 +65,11 @@
 						<li><a href="search.html">Search</a></li>
 						<li><a href="404.html">404 Error</a></li>
 					</ul>		
-				</li>
-				<li class="submenu">
-					<a href="#"><i class="icon-calendar"></i>Archives <b class="caret"></b></a>
-					<ul class="submenu-list">
-						<li><a href="archives.html">June<span>2014</span></a></li>
-						<li><a href="archives.html">May<span>2014</span></a></li>
-						<li><a href="archives.html">January<span>2014</span></a></li>
-						<li><a href="archives.html">October<span>2013</span></a></li>
-					</ul>	
-				</li>
-				<li><a href="contact.html"><i class="icon-envelope"></i>Contact</a></li>
+				</li>-->
+				<li><a href="/contact"><i class="icon-envelope"></i>Contact</a></li>
 			</ul>
 		</div>
+
 		<div id="wrap">
 			<div id="main-nav" class="">
 				<div class="container">
@@ -87,17 +80,6 @@
 						</div>
 				</div>
 			</div>
-					
-			<section id="hero" class="light-typo">
-				<div id="cover-image" class="image-bg animated fadeIn"></div>
-				<div class="container welcome-content">
-					<div class="middle-text">
-						<h1>HELLO, I AM DMYTRO BOGATOV</h1>
-						<h2><b>This website</b> is my personal blog powered <br>by <b>Jekyll</b></h2>
-						<a class="btn smooth-scroll" href="#start">See latest posts</a>
-					</div>
-				</div>
-			</section>
 
 				{{ content }}
 
@@ -162,9 +144,7 @@
 					<div class="container">
 						<p class="pull-left">Copyright Dmytro Bogatov &copy; {{ site.time | date: "%Y" }} | All rights reserved. </p>
 						<ul class="social-links pull-right">
-							<li><a href="https://twitter.com/Dima4ka007"><i class="icon-twitter"></i></a></li>
-							<li><a href="https://www.facebook.com/Dima4ka007"><i class="icon-facebook"></i></a></li>
-							<li><a href="https://plus.google.com/114014367601163240554"><i class="icon-googleplus"></i></a></li>
+							{% include social.html %}
 						</ul>
 					</div>
 				</div>

@@ -1,0 +1,13 @@
+<section id="breadcrumb">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<ol class="breadcrumb">
+					<li><a href="/">Blog</a></li>
+					{% if include.sub_title %}<li><a href="{{ include.sub_url }}">{{ include.sub_title }}</a></li>{% endif %}
+					{% if include.active_title %}<li class="active">{{ include.active_title }}</li>{% endif %}
+				</ol>
+			</div>
+		</div>
+	</div>
+</section>
