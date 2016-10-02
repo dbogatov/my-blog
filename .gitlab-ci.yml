@@ -1,0 +1,6 @@
+production:
+  type: deploy
+  script:
+  - curl --request POST 'https://deploy.dbogatov.org/deploy' --data "token=$TOKEN" --data "project=MyBlog"
+  only:
+  - master
