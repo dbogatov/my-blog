@@ -17,8 +17,10 @@ layout: default
 				{{ page.date | date: "%b %-d, %Y" }} | <a href="/about">{{ author.name }} </a> <span><a href="#disqus_thread" data-disqus-identifier="{{ page.guid }}">No Comments</a></span>
 			</div>
 
-			{{ content }}
-			
+			<div class="post-body">
+				{{ content }}
+			</div>
+
 			<div class="post-date">
 				tags | 
 				{% for tag in page.tags %}

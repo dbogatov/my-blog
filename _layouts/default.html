@@ -1,6 +1,7 @@
 <!doctype html>
 
 <html lang="en">
+
 	<head>
 
 		<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
@@ -9,25 +10,37 @@
 		<meta name="description" content="Dmytro Bogatov's personal blog'">
 		<meta name="author" content="Dmytro Bogatov">
 		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700%7CMerriweather:400,400italic,700italic" rel="stylesheet" type="text/css">
-		
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700%7CMerriweather:400,400italic,700italic" rel="stylesheet"
+						type="text/css">
+
 		<!--Bower components-->
 		<link rel="stylesheet" href="/assets/components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/assets/components/animate.css/animate.min.css">
-		<link rel="stylesheet" href="/assets/components/highlightjs/styles/xcode.css">
-		
-		<link rel="stylesheet" href="/assets/css/style.css">
-		<link rel="stylesheet" href="/assets/css/icons.css">
-		
-		<link rel="shortcut icon" href="/assets/images/ico/32.png" sizes="32x32" type="image/png"/>
-		<link rel="apple-touch-icon-precomposed" href="/assets/images/ico/60.png" type="image/png"/>
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/ico/72.png" type="image/png"/>
-		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/ico/120.png" type="image/png"/>
-		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/ico/152.png" type="image/png"/>
 
-		{% if page.path contains '_posts' %}
-			<link rel="amphtml" href="{{ page.id | prepend: '/_amp' | prepend: site.baseurl | prepend: site.url }}">
-		{% endif %}
+		<!--HighlightJS-->
+		<link rel="stylesheet" href="/assets/components/highlightjs/styles/xcode.css">
+		<style type='text/css'>
+			pre code {
+				white-space: pre;
+			}
+			
+			pre {
+				word-break: normal;
+				word-wrap: normal;
+				overflow: auto;
+			}
+		</style>
+
+		<link rel="stylesheet" href="/assets/css/style.css">
+		<link rel="stylesheet" href="/assets/css/custom.css">
+		<link rel="stylesheet" href="/assets/css/icons.css">
+
+		<link rel="shortcut icon" href="/assets/images/ico/32.png" sizes="32x32" type="image/png" />
+		<link rel="apple-touch-icon-precomposed" href="/assets/images/ico/60.png" type="image/png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/ico/72.png" type="image/png" />
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/ico/120.png" type="image/png" />
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/ico/152.png" type="image/png" /> {% if page.path contains '_posts' %}
+		<link rel="amphtml" href="{{ page.id | prepend: '/_amp' | prepend: site.baseurl | prepend: site.url }}"> {% endif %}
 
 		<!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -36,11 +49,11 @@
 	</head>
 
 	<body id="home">
-		
+
 		<div id="menu" class="menu-right">
 			<ul>
 				<li>
-					<form class="menu-search" >
+					<form class="menu-search">
 						<div class="form-group header">
 							<i class="icon-search searchico"></i>
 							<input type="text" placeholder="Blog Search">
@@ -51,13 +64,12 @@
 				<li><a href="/"><i class="icon-lime"></i>Home</a></li>
 				<li><a href="/about"><i class="icon-user"></i>About</a></li>
 				<li class="submenu">
-					<a href="#"><i class="icon-books"></i>Categories<b class="caret"></b></a>
-					{% assign categories = site.categories %}  
+					<a href="#"><i class="icon-books"></i>Categories<b class="caret"></b></a> {% assign categories = site.categories %}
 					<ul class="submenu-list">
-					{% for category in categories %} 
-						<li><a href="{{ category[0] | slugify | prepend: "/category/" }}">{{ category[0] | capitalize }} <span class="badge golden">{{ category[1].size }}</span></a></li>
-					{% endfor %}
-					</ul>		
+						{% for category in categories %}
+						<li><a href="{{ category[0] | slugify | prepend: " /category/ " }}">{{ category[0] | capitalize }} <span class="badge golden">{{ category[1].size }}</span></a></li>
+						{% endfor %}
+					</ul>
 				</li>
 				<!--<li class="submenu submenu-open">
 					<a href="#"><i class="icon-file"></i>Pages<b class="caret"></b></a>
@@ -76,17 +88,17 @@
 		</div>
 
 		<div id="wrap">
-			<div id="main-nav" {% if page.transnav %} class="nav-bg"{% endif %}>
+			<div id="main-nav" {% if page.transnav %} class="nav-bg" {% endif %}>
 				<div class="container">
 					<div class="nav-header">
-							<a class="nav-brand" href="/"><i class="icon-heart"></i>Dmytro Bogatov</a>
-							<a class="menu-link nav-icon" href="#"><i class="icon-menu2"></i></a>
-							<a class="btn btn-blog outline-white pull-right hidden-xs" href="/contact">Get in touch</a>
-						</div>
+						<a class="nav-brand" href="/"><i class="icon-heart"></i>Dmytro Bogatov</a>
+						<a class="menu-link nav-icon" href="#"><i class="icon-menu2"></i></a>
+						<a class="btn btn-blog outline-white pull-right hidden-xs" href="/contact">Get in touch</a>
+					</div>
 				</div>
 			</div>
 
-				{{ content }}
+			{{ content }}
 
 			<footer>
 				<div class="footer">
@@ -109,7 +121,7 @@
 									<div class="line">
 										<span class="counter">{{ site.data.authors | size }}</span>
 										<span class="caption">Authors</span>
-									</div>                    
+									</div>
 								</div>
 							</div>
 
@@ -121,14 +133,15 @@
 
 											{% for post in site.posts limit: 2 %}
 											<div class="media">
-												<a class="pull-left" href="{{ post.url | prepend: site.baseurl }}"><img class="media-object" src="/assets/images/posts/{% if post.image %}{{ post.image }}{% else %}placeholder.png{% endif %}" width="80" alt=""></a>
+												<a class="pull-left" href="{{ post.url | prepend: site.baseurl }}"><img class="media-object" src="/assets/images/posts/{% if post.image %}{{ post.image }}{% else %}placeholder.png{% endif %}"
+																	width="80" alt=""></a>
 												<div class="media-body">
 													<h4 class="media-heading"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h4>
 													<p class="post-date">{{ post.date | date: "%b %-d, %Y" }}</p>
 												</div>
 											</div>
 											{% endfor %}
-											
+
 										</div>
 									</div>
 								</div>
@@ -138,7 +151,7 @@
 								<h3>Tags</h3>
 								<ul class="tags">
 									{% for tag in site.tags %}
-										<li><a href="#">{{ tag | first }}</a></li>
+									<li><a href="#">{{ tag | first }}</a></li>
 									{% endfor %}
 								</ul>
 							</div>
@@ -154,7 +167,7 @@
 					</div>
 				</div>
 			</footer>
-		</div>		
+		</div>
 
 		<div class="modal fade login" id="loginModal" aria-hidden="true">
 			<div class="modal-dialog login">
@@ -163,7 +176,7 @@
 						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 						<h4 class="modal-title">Login with</h4>
 					</div>
-					<div class="modal-body">  
+					<div class="modal-body">
 						<div class="box">
 							<div class="form loginBox">
 								<form class="myform" method="post" action="/login" accept-charset="UTF-8">
@@ -180,7 +193,7 @@
 										</div>
 									</div>
 									<p class="text-center"><a href="">Forgot password?</a></p>
-									<input class="btn btn-block" type="button" value="Login" >
+									<input class="btn btn-block" type="button" value="Login">
 								</form>
 							</div>
 						</div>
@@ -191,7 +204,7 @@
 								<a href="#">create an account</a>
 							?</span>
 						</div>
-					</div>        
+					</div>
 				</div>
 			</div>
 		</div>
@@ -217,4 +230,5 @@
 		<script type="text/javascript" src="/assets/js/custom.js"></script>
 
 	</body>
+
 </html>
