@@ -45,7 +45,8 @@ layout: default
 
 			{% include popular.html %}
 
-			<h3><span id="comments" class="disqus-comment-count" data-disqus-identifier="{{ page.guid }}" ></span </h3>	
+			<h3><span id="comments" class="disqus-comment-count" data-disqus-identifier="{{ page.guid }}">No Comments</span></h3>
+			<hr />	
 			
 			{% include disqus.html guid=page.guid %}
 
