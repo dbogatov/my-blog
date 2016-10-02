@@ -39,7 +39,7 @@ $(document).ready(function () {
 	});
 
 	/* validate comment ======================================= */
-	$('#mycomment').submit(function () {
+	$('#mycomment').submit(function (e) {
  		// Stop the browser from submitting the form.
 		e.preventDefault();
 
@@ -84,13 +84,16 @@ $(document).ready(function () {
 				url: window.location.href
 			};
 
+			var _this = this;
+
 			// Submit the form using AJAX.
 			$.post("https://push.dbogatov.org/api/push/dmytro", data)
-				.complete(function (response) {
+				.done(function (response) {
 
 					$('#mycomment button').html(okMessage);
 					setTimeout(function () {
 						$('#mycomment button').html(buttonCopy);
+						$('#mycomment')[0].reset();
 					}, 2000);
 
 				});
