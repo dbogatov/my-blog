@@ -15,7 +15,7 @@ layout: default
 			{% for post in site.posts %}
 				{% for tag in post.tags %}
 					{% if tag == page.tag %}
-						{% include post.html post=post %}
+						{% include post.html post=post yesline=true %}
 					{% endif %}
 				{% endfor %}
 			{% endfor %}

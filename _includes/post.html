@@ -1,4 +1,20 @@
-<article class="clearfix {% if forloop.last %}last{% endif %}">
+{% assign printline = forloop.last %}
+
+{% if forloop.last %}
+	{% assign printline = false %}
+{% else %}
+	{% assign printline = true %}
+{% endif %}
+
+{% if include.noline %}
+	{% assign printline = false %}
+{% endif %}
+
+{% if include.yesline %}
+	{% assign printline = true %}
+{% endif %}
+
+<article class="clearfix {% unless printline %}last{% endunless %}">
 	<div class="post-date">
 		{{ include.post.date | date: "%b %-d, %Y" }} | <a href="/about">{{ include.post.author }}</a> <span><a href="{{ include.post.url | prepend: site.baseurl }}#disqus_thread" data-disqus-identifier="{{ post.guid }}">No Comments</a></span>
 	</div>		
