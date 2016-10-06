@@ -57,7 +57,7 @@
 					<a href="#"><i class="icon-books"></i>Categories<b class="caret"></b></a> {% assign categories = site.categories %}
 					<ul class="submenu-list">
 						{% for category in categories %}
-						<li><a href="{{ category[0] | slugify | prepend: " /category/ " }}">{{ category[0] | capitalize }} <span class="badge golden">{{ category[1].size }}</span></a></li>
+						<li><a href="{{ category[0] | slugify | prepend: "/category/" }}">{{ category[0] | capitalize }} <span class="badge golden">{{ category[1].size }}</span></a></li>
 						{% endfor %}
 					</ul>
 				</li>
@@ -141,7 +141,7 @@
 								<h3>Tags</h3>
 								<ul class="tags">
 									{% for tag in site.tags %}
-									<li><a href="#">{{ tag | first }}</a></li>
+										<li><a href="{{ tag | first | slugify | prepend: "/tag/" }}">{{ tag | first }}</a></li>
 									{% endfor %}
 								</ul>
 							</div>
