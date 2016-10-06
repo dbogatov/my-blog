@@ -1,3 +1,7 @@
 .post-body {
 	text-align: justify;
 }
+
+pre.highlight {
+	font-size: inherit;
+}
