@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html ⚡ lang="en">
-	{% include amp_head.html %}
+	{% include amp/amp_head.html %}
 
 	{% assign author = site.data.authors[page.author] %}
 
 	<body>
-		{% include amp_header.html %}
+		{% include amp/amp_header.html %}
 
 		<main class="content" role="main">
 			<article class="post">
@@ -23,7 +23,7 @@
 					<section class="share">
 						{% capture fullURL %}{{ page.url | prepend: site.baseurl | prepend: site.url | remove: '.html' }}{% endcapture} %}
 						<a class="icon" href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ fullURL }}" target="_blank">
-         			 		Share on {% include amp_icon-twitter.html %}
+         			 		Share on {% include amp/amp_icon-twitter.html %}
         				</a>
 					</section>
 				</footer>

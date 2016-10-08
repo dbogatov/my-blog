@@ -11,14 +11,13 @@
 	<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-	<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ " /feed.xml" | prepend: site.baseurl | prepend: site.url }}">
 
 	<script type="application/ld+json">
 		{% include metadata.json %}
 	</script>
 
 	<style amp-custom>
-		{% capture include_to_scssify %}{% include amp_styles.scss %}{% endcapture %}
+		{% capture include_to_scssify %}{% include amp/amp_styles.scss %}{% endcapture %}
 		{{ include_to_scssify | scssify	}}
 	</style>
 	<style amp-custom>
