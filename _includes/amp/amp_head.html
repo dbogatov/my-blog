@@ -22,7 +22,7 @@
 	<style amp-custom>
 		{% capture include_to_scssify %}{% include amp/amp_styles.scss %}{% endcapture %}
 		{{ include_to_scssify | scssify	}}
-		div #author-mage .author-image {
+		div#author-image.author-image {
 			{% assign author = site.data.authors[page.author] %}
 			background-image: url("/assets/images/authors/{{ author.image }}");
 		}
