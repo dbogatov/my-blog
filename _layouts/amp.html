@@ -1,37 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
+<html ⚡ lang="en">
+	{% include amp_head.html %}
 
-<html amp lang="en">
-	<head>
-		<meta charset="utf-8">
-		
-		<title>{{ page.title }}</title>
-		
-		<link rel="canonical" href="{{ page.canonical_url | prepend: site.baseurl | prepend: site.url }}" />
-		<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-		
-		<style amp-custom>
-		</style>
-		
-		<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-		<script async src="https://cdn.ampproject.org/v0.js"></script>
+	{% assign author = site.data.authors[page.author] %}
 
-	</head>
 	<body>
+		{% include amp_header.html %}
 
-		{% capture header %}{% include header.html %}{% endcapture %}
+		<main class="content" role="main">
+			<article class="post">
+				<div class="post-meta">
+					<h1 class="post-title">{{ page.title }}</h1>
+				</div>
 
-		<h1 class="post-title">
-			{{ header | amp_images }}
-		</h1>
+				<section class="post-content">
+					<a name="topofpage"></a>
+					
+					{{ page.body | markdownify | amp_images }}
 
-		<span>
-			{{ page.date }} - {{ page.author }}
-		</span>
+				</section>
+				<footer class="post-footer">
+					<section class="share">
+						{% capture fullURL %}{{ page.url | prepend: site.baseurl | prepend: site.url | remove: '.html' }}{% endcapture} %}
+						<a class="icon" href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ fullURL }}" target="_blank">
+         			 		Share on {% include amp_icon-twitter.html %}
+        				</a>
+					</section>
+				</footer>
+				<div class="bottom-teaser cf">
+					<div class="isLeft">
+						<h5 class="index-headline featured"><span>Written by</span></h5>
+						<section class="author">
+							<div class="author-image"></div>
+							<h4>{{ author.name }}</h4>
+							<p class="bio">{{ author.description }}</p>
+							<hr>
+							<p class="published">Published
+								<time datetime="{{ page.date | date: " %F %R " }}">{{ page.date | date_to_string }}</time>
+							</p>
+						</section>
+					</div>
 
-		{{ page.body | markdownify | amp_images }}
-		{% capture footer %}{% include footer.html %}{% endcapture %}
-		{{ footer | amp_images: false, 24, 24 }}
-		
+					<div class="isRight">
+						<h5 class="index-headline featured"><span>Supported by</span></h5>
+						<footer class="site-footer">
+							<section class="poweredby">
+								Proudly published with <a href="http://jekyllrb.com"> Jekyll</a> and <a href="https://github.com/ageitgey/amplify">Amplify</a>
+							</section>
+
+							<div class="inner">
+								<section class="copyright">
+									All content copyright <a href="mailto:{{ site.email }}">{{ site.owner }}</a> &copy; {{ site.time | date: '%Y' }} <br>
+									All rights reserved.
+								</section>
+							</div>
+						</footer>
+					</div>
+				</div>
+			</article>
+		</main>
+
 	</body>
 
 </html>

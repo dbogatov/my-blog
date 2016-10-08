@@ -12,16 +12,18 @@
 
 title: Dmytro Bogatov
 email: dmytro@dbogatov.org
+owner: Dmytro Bogatov
 
 description: >
   Dmytro Bogatov's personal blog
 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blog.dbogatov.org" # the base hostname & protocol for your site
+logo: "/assets/images/logo.jpg"
 
 # Build settings
 markdown: kramdown
-theme: minima
+# theme: minima
 
 # Pagination
 paginate: 3
@@ -40,4 +42,3 @@ sitemap:
   change_frequency_name: "change_frequency"
   priority_name: "priority"
 
-array: []
