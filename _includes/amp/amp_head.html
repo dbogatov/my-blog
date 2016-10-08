@@ -3,8 +3,9 @@
 
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+	
 	<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
-
+	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 	
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -17,6 +18,22 @@
 	<script type="application/ld+json">
 		{% include metadata.json %}
 	</script>
+
+	<amp-analytics type="googleanalytics" id="analytics1">
+	<script type="application/json">
+		{
+			"vars": {
+				"account": "UA-65293382-6"
+			},
+			"triggers": {
+				"trackPageview": {
+				"on": "visible",
+				"request": "pageview"
+				}
+			}
+		}
+	</script>
+	</amp-analytics>
 
 	<style amp-custom>
 		{% capture include_to_scssify %}{% include amp/amp_styles.scss %}{% endcapture %}
