@@ -58,7 +58,7 @@
 					<a href="#"><i class="icon-books"></i>Categories<b class="caret"></b></a> {% assign categories = site.categories %}
 					<ul class="submenu-list">
 						{% for category in categories %}
-						<li><a href="{{ category[0] | slugify | prepend: "/category/" }}">{{ category[0] | capitalize }} <span class="badge golden">{{ category[1].size }}</span></a></li>
+							<li><a href="{{ category[0] | slugify | prepend: "/category/" }}">{{ category[0] | capitalize }} <span class="badge golden">{{ category[1].size }}</span></a></li>
 						{% endfor %}
 					</ul>
 				</li>
@@ -112,8 +112,7 @@
 
 											{% for post in site.posts limit: 2 %}
 											<div class="media">
-												<a class="pull-left" href="{{ post.url | prepend: site.baseurl }}"><img class="media-object" src="/assets/images/posts/{% if post.image %}{{ post.image }}{% else %}placeholder.png{% endif %}"
-																	width="80" alt=""></a>
+												<a class="pull-left" href="{{ post.url | prepend: site.baseurl }}"><img class="media-object" src="/assets/images/posts/{% if post.image %}{{ post.image }}{% else %}placeholder.png{% endif %}" width="80" alt=""></a>
 												<div class="media-body">
 													<h4 class="media-heading"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h4>
 													<p class="post-date">{{ post.date | date: "%b %-d, %Y" }}</p>

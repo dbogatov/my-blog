@@ -21,6 +21,7 @@
 	<h2><a href="{{ include.post.url | prepend: site.baseurl }}">{{ include.post.title | escape }}</a></h2>
 	
 		{{ include.post.excerpt }} 
-		<a class="" href="{{ include.post.url | prepend: site.baseurl }}">Read more</a>
+		<a href="{{ include.post.url | prepend: site.baseurl }}">Read more</a> |
+		<a href="{{ include.post.url | replace:'.html','' | prepend: '_amp' | prepend: site.baseurl }}">Read AMP version</a>
 	
 </article>
