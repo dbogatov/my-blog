@@ -23,10 +23,5 @@ gem "fastimage"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-	gem "jekyll-mentions"
-	gem "jemoji"
-	gem "jekyll-redirect-from"
-	gem "jekyll-sitemap"
 	gem "jekyll-paginate"
-	gem "jekyll-compose"
 end
