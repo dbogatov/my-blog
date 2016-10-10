@@ -16,7 +16,6 @@ owner: Dmytro Bogatov
 
 description: >
   Dmytro Bogatov's personal blog
-
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blog.dbogatov.org" # the base hostname & protocol for your site
 logo: "/assets/images/logo.jpg"
