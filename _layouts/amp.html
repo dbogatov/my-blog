@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html amp lang="en">
-	{% include amp/amp_head.html %}
+	{% include amp/amp_head.html post=page %}
 
 	{% assign author = site.data.authors[page.author] %}
 
 	<body>
 		{% include amp/amp_analytics.html %}
 
-		{% include amp/amp_header.html post=page %}
+		{% include amp/amp_header.html %}
 
 		<main class="content" role="main">
 			<article class="post">

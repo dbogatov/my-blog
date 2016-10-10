@@ -14,6 +14,7 @@ module Jekyll
       self.data['author']        = post.data['author']
       self.data['category']      = post.data['category']
       self.data['canonical_url'] = post.url
+	  self.data['image']         = post.data['image']
     end
   end
   # Generates a new AMP post for each existing post

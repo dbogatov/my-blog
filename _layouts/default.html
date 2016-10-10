@@ -111,13 +111,13 @@
 										<div class="col-sm-12">
 
 											{% for post in site.posts limit: 2 %}
-											<div class="media">
-												<a class="pull-left" href="{{ post.url | prepend: site.baseurl }}"><img class="media-object" src="/assets/images/posts/{% if post.image %}{{ post.image }}{% else %}placeholder.png{% endif %}" width="80" alt=""></a>
-												<div class="media-body">
-													<h4 class="media-heading"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h4>
-													<p class="post-date">{{ post.date | date: "%b %-d, %Y" }}</p>
+												<div class="media">
+													<a class="pull-left" href="{{ post.url | prepend: site.baseurl }}"><img class="media-object" src="/assets/images/posts/{% if post.image %}{{ post.image }}{% else %}placeholder.png{% endif %}" width="80" alt=""></a>
+													<div class="media-body">
+														<h4 class="media-heading"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h4>
+														<p class="post-date">{{ post.date | date: "%b %-d, %Y" }}</p>
+													</div>
 												</div>
-											</div>
 											{% endfor %}
 
 										</div>
