@@ -41,3 +41,10 @@ sitemap:
   change_frequency_name: "change_frequency"
   priority_name: "priority"
 
+defaults:
+  -
+    scope:
+      path: ""      # empty string for all files
+      type: posts   # limit to posts
+    values:
+      is_post: true # automatically set is_post=true for all posts
