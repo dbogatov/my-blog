@@ -7,7 +7,7 @@ categories: [Server]
 date: 2016-10-11 22:05:00 UTC
 title: Server Setup Tutorial Series
 author: dmytro
-tags: [] # TODO
+tags: [server]
 image: server-setup-tutorial-series.png
 ---
 
