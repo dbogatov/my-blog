@@ -4,3 +4,5 @@ production:
   - curl --request POST 'https://deploy.dbogatov.org/deploy' --data "token=$TOKEN" --data "project=MyBlog"
   only:
   - master
+  variables:
+    GIT_STRATEGY: none
