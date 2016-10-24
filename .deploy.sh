@@ -22,6 +22,8 @@ git reset --hard origin/master
 npm install
 bower install
 
+echo $PATH
+
 bundle exec /usr/local/bin/jekyll clean
 bundle exec /usr/local/bin/jekyll build
 
