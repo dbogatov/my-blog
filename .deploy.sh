@@ -12,15 +12,15 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 cd $DIR
 
-git fetch origin > /dev/null 2>> deploy.log
-git reset --hard origin/master > /dev/null 2>> deploy.log
+git fetch origin # > /dev/null 2>> deploy.log
+git reset --hard origin/master # > /dev/null 2>> deploy.log
 
-npm install > /dev/null 2>> deploy.log
-bower install > /dev/null 2>> deploy.log
+npm install # > /dev/null 2>> deploy.log
+bower install # > /dev/null 2>> deploy.log
 
 # gulp deploy > /dev/null 2>> deploy.log
 
-/usr/local/bin/jekyll clean > /dev/null 2>> deploy.log
-/usr/local/bin/jekyll build > /dev/null 2>> deploy.log
+bundle exec jekyll clean # > /dev/null 2>> deploy.log
+bundle exec jekyll build # > /dev/null 2>> deploy.log
 
 curl --request POST 'https://push.dbogatov.org/api/push/deploy' --data "project=My-Blog"
