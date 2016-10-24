@@ -22,7 +22,7 @@ git reset --hard origin/master
 npm install
 bower install
 
-bundle exec jekyll clean
-bundle exec jekyll build
+bundle exec /usr/local/bin/jekyll clean
+bundle exec /usr/local/bin/jekyll build
 
 curl --request POST 'https://push.dbogatov.org/api/push/deploy' --data "project=My-Blog"
