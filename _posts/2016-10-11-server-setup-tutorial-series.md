@@ -29,6 +29,7 @@ If I have piqued your interest, dear reader, welcome to my blog!
 *I will do my best to keep these posts as simple as possible, but yet interesting and useful. However, I assume at least a little understanding of Linux. I assume the reader is able to SSH to the machine, make a directory, move, copy, remove, create, edit and view a file, etc. Anyway, if you find yourself struggling, please, let me know in the comments to the post. I will do my best to help you.*
 
 Here is the approximate list of topic covered by the series:
+
 * Basic server setup
 * *NGINX* setup and serving a plain HTML page
 * *NodeJS* web app setup
@@ -37,8 +38,7 @@ Here is the approximate list of topic covered by the series:
 * *MySQL* and *PHPMyAdmin* setup
 * *.NET Core* web app setup
 * *Java Spring* web app and *Tomcat* setup
-* Uptime monitor setup
-* System monitor setup
+* Uptime monitor and system monitor setup
 * *GitLab* setup
 * *Minecraft* server setup
 * Mail server setup

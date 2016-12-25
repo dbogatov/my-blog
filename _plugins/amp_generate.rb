@@ -6,15 +6,15 @@ module Jekyll
       @base = base
       @dir = dir
       @name = 'index.html'
-      self.process(@name)
-      self.read_yaml(File.join(base, '_layouts'), 'amp.html')
-      self.data['body']          = post.content
-      self.data['title']         = post.data['title']
-      self.data['date']          = post.data['date']
-      self.data['author']        = post.data['author']
-      self.data['category']      = post.data['category']
-      self.data['canonical_url'] = post.url
-	  self.data['image']         = post.data['image']
+      process(@name)
+      read_yaml(File.join(base, '_layouts'), 'amp.html')
+      data['body']          = post.content #(Liquid::Template.parse post.content).render site.site_payload
+      data['title']         = post.data['title']
+      data['date']          = post.data['date']
+      data['author']        = post.data['author']
+      data['category']      = post.data['category']
+      data['canonical_url'] = post.url
+      data['image'] = post.data['image']
     end
   end
   # Generates a new AMP post for each existing post
