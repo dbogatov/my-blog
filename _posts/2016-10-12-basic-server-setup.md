@@ -5,16 +5,16 @@ guid: 4
 
 categories: [Server]
 date: 2016-10-12 22:05:00 UTC
-title: Basic Server Setup
+title: Basic Server Setup Part 1
 author: dmytro
 tags: [ssh, sudo, server]
-image: basic-server-setup.png
+image: basic-server-setup-part-1.png
 ---
 
 Welcome to the first tutorial in my series.
 In this post we will setup a virtual Ubuntu 16.04 server on Digital Ocean.
 
-![Sudo fun](/assets/images/posts/basic-server-setup.png){:class="img-responsive"}
+![Sudo fun](/assets/images/posts/basic-server-setup-part-1.png){:class="img-responsive"}
 
 In this part we will:
 
