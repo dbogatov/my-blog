@@ -14,9 +14,9 @@ echo "Installing gems... Requires Bundle"
 bundle install
 
 echo "Cleaning output directory... Requires Jekyll"
-jekyll clean
+bundle exec jekyll clean
 
 echo "Building the website... Requires Jekyll"
-jekyll build
+bundle exec jekyll build
 
 echo "Build completed!"
