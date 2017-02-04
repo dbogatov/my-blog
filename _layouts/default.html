@@ -2,188 +2,194 @@
 
 <html lang="en">
 
-	<head>
+<head>
 
-		<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
-		<meta charset="utf-8">
-		<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-		<meta name="author" content="Dmytro Bogatov">
-		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&subset=cyrillic" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="author" content="Dmytro Bogatov">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
 
-		<!-- Facebook Instant Articles -->
-		<meta property="fb:pages" content="1333573826714997" />
+    <!-- Facebook Instant Articles -->
+    <meta property="fb:pages" content="1333573826714997" />
 
-		<!--Bower components-->
-		<link rel="stylesheet" href="/assets/components/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/assets/components/prism/plugins/line-numbers/prism-line-numbers.css">
+    <!--Bower components-->
+    <link rel="stylesheet" href="/assets/components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/components/prism/plugins/line-numbers/prism-line-numbers.css">
 
-		<!--PrismJS-->
-		<link rel="stylesheet" href="/assets/components/prism/themes/prism-coy.css" />
-		<link rel="stylesheet" href="/assets/components/prism/themes/prism-coy.css" />
+    <!--PrismJS-->
+    <link rel="stylesheet" href="/assets/components/prism/themes/prism-coy.css" />
+    <link rel="stylesheet" href="/assets/components/prism/themes/prism-coy.css" />
 
-		<link rel="stylesheet" href="/assets/css/style.css">
-		<link rel="stylesheet" href="/assets/css/custom.css">
-		<link rel="stylesheet" href="/assets/css/icons.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
 
-		<link rel="shortcut icon" href="/assets/images/ico/32.png" sizes="32x32" type="image/png" />
-		<link rel="apple-touch-icon-precomposed" href="/assets/images/ico/60.png" type="image/png" />
-		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/ico/72.png" type="image/png" />
-		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/ico/120.png" type="image/png" />
-		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/ico/152.png" type="image/png" /> 
-		{% if page.is_post %}
-			<link rel="amphtml" href="{{ page.id | prepend: '/_amp' | prepend: site.baseurl | prepend: site.url }}"> 
-		{% endif %}
+    <link rel="shortcut icon" href="/assets/images/ico/32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon-precomposed" href="/assets/images/ico/60.png" type="image/png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/ico/72.png" type="image/png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/images/ico/120.png" type="image/png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/images/ico/152.png" type="image/png" /> 
+	{% if page.is_post %}
+    	<link rel="amphtml" href="{{ page.id | prepend: '/_amp' | prepend: site.baseurl | prepend: site.url }}"> 
+	{% endif %}
 
-		<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
-	</head>
+</head>
 
-	<body id="home">
+<body id="home">
 
-		<div id="menu" class="menu-right hidden">
-			<ul>
-				<li>
-					<form class="menu-search">
-						<div class="form-group header">
-							<i class="icon-search searchico"></i>
-							<input type="text" placeholder="Blog Search">
-							<a href="#" class="close-menu"><i class="icon-close"></i></a>
-						</div>
-					</form>
-				</li>
-				<li><a href="/"><i class="icon-lime"></i>Home</a></li>
-				<li><a href="/about"><i class="icon-user"></i>About</a></li>
-				<li class="submenu">
-					<a href="#"><i class="icon-books"></i>Categories<b class="caret"></b></a> {% assign categories = site.categories %}
-					<ul class="submenu-list">
-						{% for category in categories %}
-							<li><a href="{{ category[0] | slugify | prepend: "/category/" }}">{{ category[0] | capitalize }} <span class="badge golden">{{ category[1].size }}</span></a></li>
-						{% endfor %}
-					</ul>
-				</li>
-				<li><a href="/contact"><i class="icon-envelope"></i>Contact</a></li>
-			</ul>
-		</div>
+    <div id="menu" class="menu-right hidden">
+        <ul>
+            <li>
+                <form class="menu-search">
+                    <div class="form-group header">
+                        <i class="icon-search searchico"><!-- --></i>
+                        <input type="text" placeholder="Blog Search">
+                        <a href="#" class="close-menu"><i class="icon-close"><!-- --></i></a>
+                    </div>
+                </form>
+            </li>
+            <li><a href="/"><i class="icon-lime"><!-- --></i>Home</a></li>
+            <li><a href="/about"><i class="icon-user"><!-- --></i>About</a></li>
+            <li class="submenu">
+                <a href="#"><i class="icon-books"><!-- --></i>Categories<b class="caret"><!-- --></b></a> {% assign categories = site.categories %}
+                <ul class="submenu-list">
+                    {% for category in categories %}
+                    <li><a href="{{ category[0] | slugify | prepend: "/category/" }}">{{ category[0] | capitalize }} <span class="badge golden">{{ category[1].size }}</span></a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li><a href="/contact"><i class="icon-envelope"><!-- --></i>Contact</a></li>
+        </ul>
+    </div>
 
-		<div id="wrap">
-			<div id="main-nav" {% if page.transnav %} class="nav-bg" {% endif %}>
-				<div class="container">
-					<div class="nav-header">
-						<a class="nav-brand" href="/"><i class="icon-heart"></i>Dmytro Bogatov</a>
-						<a class="menu-link nav-icon" href="#"><i class="icon-menu2"></i></a>
-						<a class="btn btn-blog outline-white pull-right hidden-xs" href="/contact">Get in touch</a>
-					</div>
-				</div>
-			</div>
+    <div id="wrap">
+        <div id="main-nav" {% if page.transnav %} class="nav-bg" {% endif %}>
+            <div class="container">
+                <div class="nav-header">
+                    <a class="nav-brand" href="/"><i class="icon-heart"><!-- --></i>Dmytro Bogatov</a>
+                    <a class="menu-link nav-icon" href="#"><i class="icon-menu2"><!-- --></i></a>
+                    <a class="btn btn-blog outline-white pull-right hidden-xs" href="/contact">Get in touch</a>
+                </div>
+            </div>
+        </div>
 
-			{{ content }}
+        {{ content }}
 
-			<footer>
-				<div class="footer">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-4 col-md-4 footer-widget">
-								<h3>Statistics</h3>
+        <footer>
+            <div class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 footer-widget">
+                            <h3>Statistics</h3>
 
-								<span>We can't compete with Mom! Her company is big and evil! </span>
+                            <span>We can't compete with Mom! Her company is big and evil! </span>
 
-								<div class="stats">
-									<div class="line">
-										<span class="counter">{{ site.posts | size }}</span>
-										<span class="caption">Articles</span>
-									</div>
-									<div class="line">
-										<span class="counter">{{ site.categories | size }}</span>
-										<span class="caption">Categories</span>
-									</div>
-									<div class="line">
-										<span class="counter">{{ site.data.authors | size }}</span>
-										<span class="caption">Authors</span>
-									</div>
-								</div>
-							</div>
+                            <div class="stats">
+                                <div class="line">
+                                    <span class="counter">{{ site.posts | size }}</span>
+                                    <span class="caption">Articles</span>
+                                </div>
+                                <div class="line">
+                                    <span class="counter">{{ site.categories | size }}</span>
+                                    <span class="caption">Categories</span>
+                                </div>
+                                <div class="line">
+                                    <span class="counter">{{ site.data.authors | size }}</span>
+                                    <span class="caption">Authors</span>
+                                </div>
+                            </div>
+                        </div>
 
-							<div class="col-sm-4 col-md-4 footer-widget">
-								<h3>Recent posts</h3>
-								<div class="post-recent-widget">
-									<div class="row">
-										<div class="col-sm-12">
+                        <div class="col-sm-4 col-md-4 footer-widget">
+                            <h3>Recent posts</h3>
+                            <div class="post-recent-widget">
+                                <div class="row">
+                                    <div class="col-sm-12">
 
-											{% for post in site.posts limit: 2 %}
-												<div class="media">
-													<a class="pull-left" href="{{ post.url | prepend: site.baseurl }}"><img class="media-object" src="/assets/images/posts/{% if post.image %}{{ post.image }}{% else %}placeholder.png{% endif %}" width="80" alt=""></a>
-													<div class="media-body">
-														<h4 class="media-heading"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h4>
-														<p class="post-date">{{ post.date | date: "%b %-d, %Y" }}</p>
-													</div>
-												</div>
-											{% endfor %}
+                                        {% for post in site.posts limit: 2 %}
+                                        <div class="media">
+                                            <a class="pull-left" href="{{ post.url | prepend: site.baseurl }}"><img class="media-object" src="/assets/images/posts/{% if post.image %}{{ post.image }}{% else %}placeholder.png{% endif %}" width="80" alt=""></a>
+                                            <div class="media-body">
+                                                <h4 class="media-heading"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a></h4>
+                                                <p class="post-date">{{ post.date | date: "%b %-d, %Y" }}</p>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
 
-										</div>
-									</div>
-								</div>
-							</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-							<div class="col-sm-4 col-md-4 footer-widget clearfix">
-								<h3>Tags</h3>
-								<ul class="tags">
-									{% for tag in site.tags %}
-										<li><a href="{{ tag | first | slugify | prepend: "/tag/" }}">{{ tag | first }}</a></li>
-									{% endfor %}
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="copyright">
-					<div class="container">
-						<p class="pull-left">Copyright Dmytro Bogatov &copy; {{ site.time | date: "%Y" }} | All rights reserved. </p>
-						<ul class="social-links pull-right">
-							{% include social.html %}
-						</ul>
-					</div>
-				</div>
-			</footer>
-		</div>
+                        <div class="col-sm-4 col-md-4 footer-widget clearfix">
+                            <h3>Tags</h3>
+                            <ul class="tags">
+                                {% for tag in site.tags %}
+                                <li><a href="{{ tag | first | slugify | prepend: "/tag/" }}">{{ tag | first }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <p class="pull-left">Copyright Dmytro Bogatov &copy; {{ site.time | date: "%Y" }} | All rights reserved. </p>
+                    <ul class="social-links pull-right">
+                        {% include social.html %}
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
 
-		<!--Bower components-->
-		<script type="text/javascript" src="/assets/components/jquery/dist/jquery.min.js"></script>
-		<script type="text/javascript" src="/assets/components/bootstrap/dist/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="/assets/components/placeholders/dist/placeholders.min.js"></script>
-		<script type="text/javascript" src="/assets/components/wow/dist/wow.min.js"></script>
-		
-		<!--PrismJS-->
-		<script type="text/javascript" src="/assets/components/prism/prism.js"></script>
-		<script type="text/javascript" src="/assets/components/prism/components/prism-nginx.min.js"></script>
-		<script type="text/javascript" src="/assets/components/prism/components/prism-bash.min.js"></script>
-		<script type="text/javascript" src="/assets/js/modifiedLineNumbersPrism.js"></script>
+    <!--Bower components-->
+    <script type="text/javascript" src="/assets/components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/assets/components/placeholders/dist/placeholders.min.js"></script>
+    <script type="text/javascript" src="/assets/components/wow/dist/wow.min.js"></script>
 
-		<!--Googel Maps-->
-		<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
-		<script type="text/javascript" src="/assets/js/google-maps.js"></script>
+    <!--PrismJS-->
+    <script type="text/javascript" src="/assets/components/prism/prism.js"></script>
+    <script type="text/javascript" src="/assets/components/prism/components/prism-nginx.min.js"></script>
+    <script type="text/javascript" src="/assets/components/prism/components/prism-bash.min.js"></script>
+    <script type="text/javascript" src="/assets/js/modifiedLineNumbersPrism.js"></script>
 
-		<!--Disqus comments-->
-		<script id="dsq-count-scr" src="//blog-dbogatov-org.disqus.com/count.js" async></script>
+    <!--Googel Maps-->
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="/assets/js/google-maps.js"></script>
 
-		<!--Custom scripts-->
-		<script type="text/javascript" src="/assets/js/custom.js"></script>
+    <!--Disqus comments-->
+    <script id="dsq-count-scr" src="//blog-dbogatov-org.disqus.com/count.js" async></script>
 
-		<!--Google Analytics-->
-		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <!--Custom scripts-->
+    <script type="text/javascript" src="/assets/js/custom.js"></script>
 
-			ga('create', 'UA-65293382-6', 'auto');
-			ga('send', 'pageview');
+    <!--Google Analytics-->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-		</script>
+        ga('create', 'UA-65293382-6', 'auto');
+        ga('send', 'pageview');
+    </script>
 
-	</body>
+</body>
 
 </html>

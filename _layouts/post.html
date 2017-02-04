@@ -32,9 +32,9 @@ layout: default
 
 			{% capture fullURL %}{{ page.url | prepend: site.baseurl | prepend: site.url | remove: '.html' }}{% endcapture} %}
 			<ul class="social-links outline text-center">
-				<li><a href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ fullURL }}&hashtags={{ page.tags | join: ',' }}"><i class="icon-twitter"></i></a></li>
-				<li><a id="fb-share" href="javascript:;"><i class="icon-facebook"></i></a></li>
-				<li><a href="https://plus.google.com/share?url={{ fullURL }}" onclick="javascript:window.open(this.href,'','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="icon-googleplus"></i></a></li>
+				<li><a href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ fullURL }}&hashtags={{ page.tags | join: ',' }}"><i class="icon-twitter"><!-- --></i></a></li>
+				<li><a id="fb-share" href="javascript:;"><i class="icon-facebook"><!-- --></i></a></li>
+				<li><a href="https://plus.google.com/share?url={{ fullURL }}" onclick="javascript:window.open(this.href,'','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="icon-googleplus"><!-- --></i></a></li>
 			</ul>
 
 			<div id="author" class="clearfix">
