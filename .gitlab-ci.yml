@@ -24,7 +24,7 @@ tidy:
   - build
   before_script:
   - cd _site
-  - python3 -m http.server 8080 &
+  - http-server -p 8080 &
   - sleep 15
   - cd ..
   script:
@@ -38,7 +38,7 @@ blc:
   - build
   before_script:
   - cd _site
-  - python3 -m http.server 8080 &
+  - http-server -p 8080 &
   - sleep 15
   - cd ..
   script:
