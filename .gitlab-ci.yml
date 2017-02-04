@@ -1,8 +1,61 @@
-production:
-  type: deploy
+image: dbogatov/docker-containers:jekyll-latest
+
+stages:
+- build
+- test
+- release
+#- deploy
+
+build:
+  stage: build
   script:
-  - curl --request POST 'https://deploy.dbogatov.org/deploy' --data "token=$TOKEN" --data "project=MyBlog"
-  only:
-  - master
-  variables:
-    GIT_STRATEGY: none
+#  - printf "{\"Version\":{\"GitHash\":\"%s\"}}" $CI_BUILD_REF > version.json
+  - ./build.sh
+  artifacts:
+    expire_in: 30 min
+    paths:
+    - _site/
+  tags:
+  - Docker
+
+tidy:
+  stage: test
+  dependencies:
+  - build
+  before_script:
+  - cd _site
+  - python3 -m http.server 8080 &
+  - sleep 15
+  - cd ..
+  script:
+  - curl -L http://localhost:8080 | tidy -config -e #tidy.conf -e
+  tags:
+  - Docker
+  
+blc:
+  stage: test
+  dependencies:
+  - build
+  before_script:
+  - cd _site
+  - python3 -m http.server 8080 &
+  - sleep 15
+  - cd ..
+  script:
+  - blc --filter-level 3 --input http://localhost:8080 -rog --exclude www.nginx.com
+  tags:
+  - Docker
+
+# dockerify:
+#   stage: release
+#   dependencies:
+#   - build
+#   before_script:
+#   - docker info
+#   script:
+#   - cd src/EShop
+#   - docker build -t registry.dbogatov.org/dbogatov/shevastreameshop .
+#   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.dbogatov.org
+#   - docker push registry.dbogatov.org/dbogatov/shevastreameshop
+#   tags:
+#   - Shell
