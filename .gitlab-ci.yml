@@ -23,7 +23,7 @@ tidy:
   dependencies:
   - build
   before_script:
-  - http-server _site/ -p 8080 &
+  - http-server _site/ -p 8080 > /dev/null &
   - sleep 10
   script:
   - curl -Ls http://localhost:8080 | tidy -e #-config tidy.conf -e
@@ -36,7 +36,7 @@ blc:
   - build
   before_script:
   - cd _site
-  - http-server _site/ -p 8080 &
+  - http-server _site/ -p 8080 > /dev/null &
   - sleep 10
   - cd ..
   script:
