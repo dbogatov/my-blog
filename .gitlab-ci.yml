@@ -24,7 +24,7 @@ tidy:
   - build
   before_script:
   - http-server _site/ -p 8080 > /dev/null &
-  - sleep 10
+  - sleep 5
   script:
   - curl -Ls http://localhost:8080 | tidy -e #-config tidy.conf -e
   tags:
@@ -35,10 +35,8 @@ blc:
   dependencies:
   - build
   before_script:
-  - cd _site
   - http-server _site/ -p 8080 > /dev/null &
-  - sleep 10
-  - cd ..
+  - sleep 5
   script:
   - blc --filter-level 3 --input http://localhost:8080 -rog --exclude www.nginx.com
   tags:
