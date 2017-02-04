@@ -28,7 +28,7 @@ tidy:
   - sleep 15
   - cd ..
   script:
-  - curl -L http://localhost:8080 | tidy -config -e #tidy.conf -e
+  - curl -L http://localhost:8080 | tidy -e #-config tidy.conf -e
   tags:
   - Docker
   
