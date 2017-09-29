@@ -4,7 +4,7 @@ stages:
 - build
 - test
 - release
-#- deploy
+- deploy
 
 build:
   stage: build
@@ -16,7 +16,7 @@ build:
     paths:
     - _site/
   tags:
-  - Docker
+  - docker
 
 tidy:
   stage: test
@@ -26,9 +26,9 @@ tidy:
   - http-server _site/ -p 8080 > /dev/null &
   - sleep 5
   script:
-  - curl -Ls http://localhost:8080 | tidy -e #-config tidy.conf -e
+  - curl -Ls http://localhost:8080 | tidy -e
   tags:
-  - Docker
+  - docker
   
 blc:
   stage: test
@@ -40,18 +40,15 @@ blc:
   script:
   - blc --filter-level 3 --input http://localhost:8080 -rog --exclude www.nginx.com
   tags:
-  - Docker
+  - docker
 
-# dockerify:
-#   stage: release
-#   dependencies:
-#   - build
-#   before_script:
-#   - docker info
-#   script:
-#   - cd src/EShop
-#   - docker build -t registry.dbogatov.org/dbogatov/shevastreameshop .
-#   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.dbogatov.org
-#   - docker push registry.dbogatov.org/dbogatov/shevastreameshop
-#   tags:
-#   - Shell
+dockerify:
+  stage: release
+  dependencies:
+  - build
+  script:
+  - docker build -t registry.dbogatov.org/dbogatov/my-blog .
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.dbogatov.org
+  - docker push registry.dbogatov.org/dbogatov/my-blog
+  tags:
+  - shell
