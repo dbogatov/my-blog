@@ -9,7 +9,6 @@ stages:
 build:
   stage: build
   script:
-#  - printf "{\"Version\":{\"GitHash\":\"%s\"}}" $CI_BUILD_REF > version.json
   - ./build.sh
   artifacts:
     expire_in: 30 min
