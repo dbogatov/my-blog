@@ -1,5 +1,3 @@
-image: dbogatov/docker-containers:jekyll-latest
-
 stages:
 - build
 - test
@@ -7,6 +5,7 @@ stages:
 - deploy
 
 build:
+  image: dbogatov/docker-images:jekyll-latest
   stage: build
   script:
   - ./build.sh
@@ -18,6 +17,7 @@ build:
   - docker
 
 tidy:
+  image: dbogatov/docker-images:tidy-latest
   stage: test
   dependencies:
   - build
@@ -30,6 +30,7 @@ tidy:
   - docker
   
 blc:
+  image: dbogatov/docker-images:blc-latest
   stage: test
   dependencies:
   - build
