@@ -52,3 +52,22 @@ dockerify:
   - docker push registry.dbogatov.org/dbogatov/my-blog
   tags:
   - shell
+
+pages:
+  image: dbogatov/docker-images:alpine-extras-latest
+  variables:
+    GIT_STRATEGY: none
+  stage: release
+  script:
+  - mv _site/ public/
+  - echo "Uploading files to pages"
+  artifacts:
+    expire_in: 30 min
+    paths:
+    - public
+  dependencies:
+  - build
+  tags:
+  - docker
+  only:
+  - master
